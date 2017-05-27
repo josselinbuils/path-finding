@@ -1,0 +1,79 @@
+<html>
+<head>
+    <script src="algorithms/a-star.js"></script>
+    <script src="core.js"></script>
+    <style>
+        body {
+            background: black;
+            text-align: center;
+            margin: 0;
+        }
+
+        canvas {
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: inline-block;
+            z-index: 1;
+        }
+
+        button {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 8px;
+            border: 1px solid black;
+            background: white;
+            outline: 0;
+            margin-right: 3px;
+        }
+
+        label {
+            color: white;
+            vertical-align: middle;
+            margin-left: 20px;
+            margin-right: 5px;
+        }
+
+        select, input {
+            height: 25px;
+            outline: none;
+            border: 1px solid black;
+            background: white;
+            border-radius: 5px;
+            padding-left: 7px;
+        }
+
+        .toolbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 2;
+            background: black;
+            padding: 10px;
+            border: 1px solid white;
+            border-top-right-radius: 5px;
+            border-left-width: 0;
+            border-bottom-width: 0;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+<canvas></canvas>
+<div class="toolbar">
+    <button onclick="window.generateMap()">Auto</button>
+    <button onclick="window.start()">Start</button>
+    <button onclick="window.clearMap()">Reset</button>
+
+    <label for="algorithms">Algorithm</label>
+    <select id="algorithms">
+        <option value="AStart:diagonal" selected>A* Diagonal</option>
+        <option value="AStart:euclidean">A* Euclidean</option>
+        <option value="AStart:manhattan">A* Manhattan</option>
+    </select>
+
+    <label for="heuristic-weight">Heuristic weight</label>
+    <input id="heuristic-weight" type="number" min="1" max="5" value="2">
+</div>
+</body>
+</html>
